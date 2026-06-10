@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+:root {
+	--brand-yellow: #ffd100;
+	--brand-black: #0b0b0d;
+}
+
+html, body, #root {
+	height: 100%;
+}
+
+/* Utility for smooth font-scaling on large headings */
+.hero-heading {
+	font-family: 'Georgia', arial, sans-serif;
+}
