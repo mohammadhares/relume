@@ -1,20 +1,25 @@
 import React from 'react'
+import light from '../assets/light.svg'
 
 const Science: React.FC = () => {
   const cards = [
     {
+      icon: light,
       title: 'Light resolves',
       body: 'In 1880, physicist John William Strutt discovered the minimum distance at which two objects become distinguishable. Below that threshold, they merge into one. Markets live in that threshold.'
     },
     {
+      icon: light,
       title: 'Noise obscures',
       body: 'Every trader sees the same public data. The crowd moves together, blind to what lies beneath the surface. Separation requires looking deeper than the instruments allow.'
     },
     {
+      icon: light,
       title: 'We separate',
       body: 'Our technology applies the Rayleigh Criterion to market microstructure, isolating the patterns that conventional systems miss. What appears as noise becomes signal when you have the right lens.'
     },
     {
+      icon: light,
       title: 'Clarity emerges',
       body: 'The full order book reveals itself. Hidden liquidity surfaces. The true structure of price becomes visible. This is what happens when you resolve the market at its deepest level.'
     }
@@ -43,12 +48,12 @@ const Science: React.FC = () => {
           {cards.map((card) => (
             <article key={card.title} className="border rounded-xl p-6 bg-white">
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-md border bg-gray-50 flex items-center justify-center text-gray-700">
-                  <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                    <rect x="0.5" y="0.5" width="17" height="13" rx="2" stroke="#CBD5E1"/>
-                    <path d="M3 4H15" stroke="#64748B" strokeWidth="1.2" strokeLinecap="round"/>
-                    <path d="M3 9H9" stroke="#64748B" strokeWidth="1.2" strokeLinecap="round"/>
-                  </svg>
+                <div className="flex-shrink-0">
+                 <img
+                 src={card.icon}
+                  alt={card.title}
+                  className="h-8 w-8"
+                  />
                 </div>
 
                 <div>

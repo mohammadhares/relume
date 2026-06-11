@@ -1,4 +1,5 @@
 import React from 'react'
+import RayleighLogo from '../assets/Rayleighlogo.svg'
 
 const Footer: React.FC = () => {
   return (
@@ -8,10 +9,11 @@ const Footer: React.FC = () => {
           {/* Subscribe / Logo */}
           <div className="col-span-1">
             <div className="flex items-center mb-6">
-              <svg width="44" height="26" viewBox="0 0 56 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                <rect width="56" height="32" rx="4" fill="var(--brand-yellow)" />
-                <path d="M10 22L22 8H30L18 22H10Z" fill="#fff" />
-              </svg>
+              <img
+      src={RayleighLogo}
+      alt="Rayleigh"
+      className="h-17 w-auto"
+    />
             </div>
 
             <p className="text-gray-700">Stay informed on market intelligence and research updates.</p>

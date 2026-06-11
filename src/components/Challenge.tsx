@@ -1,5 +1,8 @@
 import React from 'react'
 import PlaceholderImage from './PlaceholderImage'
+import timer from '../assets/timer.svg'
+import blur_on from '../assets/blur_on.svg'
+import info_i from '../assets/info_i.svg'
 
 const Challenge: React.FC = () => {
   return (
@@ -19,26 +22,29 @@ const Challenge: React.FC = () => {
 
           <ul className="space-y-3">
             <li className="flex items-start gap-3">
-              <svg className="w-5 h-5 text-gray-500 mt-1" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="10" cy="10" r="9" stroke="#CBD5E1" strokeWidth="1.5" />
-                <path d="M6 10L9 13L14 7" stroke="#64748B" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+                <img
+      src={timer}
+      alt="timer"
+      className="h-5 w-auto"
+    />
               <span>Microseconds decide winners and losers</span>
             </li>
 
             <li className="flex items-start gap-3">
-              <svg className="w-5 h-5 text-gray-500 mt-1" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="10" cy="10" r="9" stroke="#CBD5E1" strokeWidth="1.5" />
-                <path d="M7.5 10.5H12.5" stroke="#64748B" strokeWidth="1.6" strokeLinecap="round" />
-              </svg>
+                  <img
+      src={info_i}
+      alt="information"
+      className="h-5 w-auto"
+    />
               <span>Information decays faster than thought</span>
             </li>
 
             <li className="flex items-start gap-3">
-              <svg className="w-5 h-5 text-gray-500 mt-1" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="10" cy="10" r="9" stroke="#CBD5E1" strokeWidth="1.5" />
-                <path d="M6.5 9.5L9.5 12.5L13.5 8.5" stroke="#64748B" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+                  <img
+      src={blur_on}
+      alt="timer"
+      className="h-5 w-auto"
+    />
               <span>Depth separates signal from illusion</span>
             </li>
           </ul>

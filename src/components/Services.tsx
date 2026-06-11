@@ -1,36 +1,23 @@
 import React from 'react'
 import PlaceholderImage from './PlaceholderImage'
+import visibility from '../assets/visibility.svg'
+import Execu from '../assets/Execu.svg'
+import dynamic from '../assets/dynamic.svg'
 
 const Services: React.FC = () => {
   const features = [
     {
-      icon: (
-        <svg className="w-8 h-8 text-gray-700" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-          <path d="M12 5C7 5 3.3 8.1 2 12c1.3 3.9 5 7 10 7s8.7-3.1 10-7c-1.3-3.9-5-7-10-7z" stroke="#111827" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-          <circle cx="12" cy="12" r="3" stroke="#111827" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      ),
+      icon: visibility,
       title: 'Market making with perfect information',
       body: 'Provide liquidity where others see only risk, using complete order-book visibility to quote with confidence.'
     },
     {
-      icon: (
-        <svg className="w-8 h-8 text-gray-700" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-          <path d="M12 3v18" stroke="#111827" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M6 7l6 4 6-4" stroke="#111827" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M6 17l6-4 6 4" stroke="#111827" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      ),
+      icon: Execu,
       title: 'Best execution through signal clarity',
       body: 'Route orders through the clearest path in the market, minimizing impact and capturing the true price of execution.'
     },
     {
-      icon: (
-        <svg className="w-8 h-8 text-gray-700" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-          <circle cx="12" cy="12" r="9" stroke="#111827" strokeWidth="1.2" />
-          <circle cx="12" cy="12" r="3" fill="#111827" />
-        </svg>
-      ),
+      icon: dynamic,
       title: 'Dynamic fund optimization',
       body: 'Adjust portfolio positioning in real time as market structure shifts, staying ahead of the patterns others are still discovering.'
     }
@@ -50,7 +37,13 @@ const Services: React.FC = () => {
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((f) => (
             <div key={f.title} className="text-center px-6">
-              <div className="flex items-center justify-center">{f.icon}</div>
+              <div className="flex items-center justify-center">
+                 <img
+    src={f.icon}
+    alt={f.title}
+    className="h-10 w-12"
+  />
+              </div>
               <h3 className="mt-6 text-xl font-bold text-black">{f.title}</h3>
               <p className="mt-4 text-gray-600">{f.body}</p>
             </div>

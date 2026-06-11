@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
+import RayleighLogo from '../assets/Rayleighlogo.svg'
 
 const Logo: React.FC = () => (
-  <div className="flex items-center justify-center">
-    <svg width="56" height="32" viewBox="0 0 56 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-      <rect width="56" height="32" rx="4" fill="var(--brand-yellow)" />
-      <path d="M10 22L22 8H30L18 22H10Z" fill="#fff" />
-    </svg>
+  <div className="flex items-center justify-center ">
+     <img
+      src={RayleighLogo}
+      alt="Rayleigh"
+      className="h-15 w-auto"
+    />
   </div>
 )
 

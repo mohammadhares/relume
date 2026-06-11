@@ -1,44 +1,27 @@
 import React from 'react'
+import search from '../assets/search.svg'
+import stra from '../assets/stra.svg'
+import system from '../assets/system.svg'
 
 const Team: React.FC = () => {
   const roles = [
     {
-      icon: (
-        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-          <path d="M12 12a5 5 0 100-10 5 5 0 000 10z" stroke="#111827" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M3 21a9 9 0 0118 0" stroke="#111827" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      ),
+      icon: search,
       title: 'Research that moves markets',
       body: 'Develop quantitative models that reveal patterns in market microstructure and execution dynamics.'
     },
     {
-      icon: (
-        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-          <path d="M3 12h18" stroke="#111827" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M3 6h18" stroke="#111827" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      ),
+      icon: stra,
       title: 'Business development and strategy',
       body: 'Build relationships with institutions that need to see deeper into their own trading operations.'
     },
     {
-      icon: (
-        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-          <path d="M4 7h16v10H4z" stroke="#111827" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M8 11h8" stroke="#111827" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      ),
+      icon: system,
       title: 'Frontend and systems engineering',
       body: 'Create interfaces that make the invisible visible, turning raw market data into actionable intelligence.'
     },
     {
-      icon: (
-        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-          <circle cx="12" cy="12" r="9" stroke="#111827" strokeWidth="1.2" />
-          <path d="M8 12h8" stroke="#111827" strokeWidth="1.2" strokeLinecap="round" />
-        </svg>
-      ),
+      icon: search,
       title: 'Quantitative research that sees beyond consensus',
       body: 'Build models that isolate the patterns markets hide from ordinary instruments.'
     }
@@ -63,7 +46,13 @@ const Team: React.FC = () => {
         {roles.map((r) => (
           <div key={r.title} className="px-2">
             <div className="flex items-start gap-4">
-              <div className="text-gray-700 mt-1">{r.icon}</div>
+             <div className="flex-shrink-0 mt-1">
+  <img
+    src={r.icon}
+    alt={r.title}
+    className="h-8 w-8"
+  />
+</div>
               <div>
                 <h3 className="text-lg font-bold text-black">{r.title}</h3>
                 <p className="mt-2 text-gray-600 text-sm">{r.body}</p>
