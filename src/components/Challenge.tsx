@@ -9,13 +9,13 @@ const Challenge: React.FC = () => {
     <section className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         <div>
-          <p className="text-sm text-gray-500 font-medium uppercase">Challenge</p>
-          <h2 className="hero-heading mt-4 text-4xl md:text-5xl lg:text-6xl font-extrabold text-black leading-tight">
+          <p className="text-sm text-[var(--gold-warm)] font-semibold uppercase tracking-widest">Challenge</p>
+          <h2 className="hero-heading mt-4 text-4xl md:text-5xl lg:text-6xl font-extrabold text-[var(--gold)] leading-tight">
             Markets have become a blur of noise
           </h2>
         </div>
 
-        <div className="text-gray-700 space-y-6">
+        <div className="text-[#d6d2b0] space-y-6">
           <p>
             Modern markets generate more data than human perception can process. Microseconds matter. A trader who sees the same signals as everyone else sees nothing at all. The real advantage lies in cutting through the static, in isolating the patterns that move price before the crowd recognizes them.
           </p>
@@ -50,8 +50,8 @@ const Challenge: React.FC = () => {
           </ul>
 
           <div className="mt-6 flex items-center gap-4">
-            <button className="px-4 py-2 rounded-full border border-gray-300 text-sm font-medium text-gray-700 bg-white">Explore</button>
-            <button className="text-sm font-medium text-gray-700">Arrow &nbsp; &gt;</button>
+            <button className="px-4 py-2 rounded-full border border-[var(--gold-warm)]/70 text-sm font-medium text-[var(--gold)] bg-[var(--panel)] hover:bg-[var(--panel-strong)] transition-colors">Explore</button>
+            <button className="text-sm font-medium text-[var(--gold)]">Arrow &nbsp; &gt;</button>
           </div>
         </div>
       </div>
