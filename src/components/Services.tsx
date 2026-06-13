@@ -24,7 +24,7 @@ const Services: React.FC = () => {
   ]
 
   return (
-    <section className="bg-transparent">
+    <section id="services" className="bg-transparent">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
         <div className="text-center">
           <p className="text-sm text-[var(--gold-warm)] font-semibold uppercase tracking-widest">Services</p>
@@ -34,7 +34,7 @@ const Services: React.FC = () => {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8" id="services-features">
           {features.map((f) => (
             <div key={f.title} className="text-center px-6 rounded-xl border border-[var(--gold-warm)]/30 bg-[var(--panel)] py-8">
               <div className="flex items-center justify-center">
@@ -57,7 +57,7 @@ const Services: React.FC = () => {
       </div>
 
       {/* Platform block */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div id="platform" className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
             <PlaceholderImage className="h-[420px] md:h-[520px]" />

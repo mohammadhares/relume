@@ -3,10 +3,11 @@ import PlaceholderImage from './PlaceholderImage'
 import timer from '../assets/timer.svg'
 import blur_on from '../assets/blur_on.svg'
 import info_i from '../assets/info_i.svg'
+import Carousel from './Carousel'
 
 const Challenge: React.FC = () => {
   return (
-    <section className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+    <section id="challenge" className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         <div>
           <p className="text-sm text-[var(--gold-warm)] font-semibold uppercase tracking-widest">Challenge</p>
@@ -22,29 +23,29 @@ const Challenge: React.FC = () => {
 
           <ul className="space-y-3">
             <li className="flex items-start gap-3">
-                <img
-      src={timer}
-      alt="timer"
-      className="h-5 w-auto"
-    />
+              <img
+                src={timer}
+                alt="timer"
+                className="h-5 w-auto icon-yellow"
+              />
               <span>Microseconds decide winners and losers</span>
             </li>
 
             <li className="flex items-start gap-3">
-                  <img
-      src={info_i}
-      alt="information"
-      className="h-5 w-auto"
-    />
+              <img
+                src={info_i}
+                alt="information"
+                className="h-5 w-auto icon-yellow"
+              />
               <span>Information decays faster than thought</span>
             </li>
 
             <li className="flex items-start gap-3">
-                  <img
-      src={blur_on}
-      alt="timer"
-      className="h-5 w-auto"
-    />
+              <img
+                src={blur_on}
+                alt="timer"
+                className="h-5 w-auto icon-yellow"
+              />
               <span>Depth separates signal from illusion</span>
             </li>
           </ul>
@@ -57,7 +58,11 @@ const Challenge: React.FC = () => {
       </div>
 
       <div className="mt-12">
-        <PlaceholderImage />
+
+
+        <Carousel />
+
+        {/* <PlaceholderImage /> */}
       </div>
     </section>
   )

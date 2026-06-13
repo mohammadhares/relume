@@ -3,7 +3,7 @@ import PlaceholderImage from './PlaceholderImage'
 
 const Architecture: React.FC = () => {
   return (
-    <section className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+    <section id="architecture" className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div>
           <p className="text-sm text-[var(--gold-warm)] font-semibold uppercase tracking-widest">Architecture</p>
@@ -32,7 +32,8 @@ const Architecture: React.FC = () => {
         </div>
 
         <div>
-          <PlaceholderImage />
+          <img className='w-100' src="https://img.magnific.com/free-photo/recession-banking-statistics-bad-street_1150-1720.jpg?semt=ais_hybrid&w=740&q=80" alt="" />
+          {/* <PlaceholderImage /> */}
         </div>
       </div>
     </section>

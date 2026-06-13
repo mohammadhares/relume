@@ -28,7 +28,7 @@ const Team: React.FC = () => {
   ]
 
   return (
-    <section className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+    <section id="talent" className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
         <div>
           <p className="text-sm text-[var(--gold-warm)] font-semibold uppercase tracking-widest">Talent</p>

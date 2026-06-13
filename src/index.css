@@ -16,14 +16,24 @@ html, body, #root {
 	height: 100%;
 }
 
+/* Smooth in-page anchor scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure anchored sections are visible below the sticky nav */
+.section-anchor {
+	scroll-margin-top: 5.25rem; /* matches nav height (approx 84px) */
+}
+
 body {
 	background-image: linear-gradient(rgba(2, 3, 2, 0), rgba(2, 3, 2, 0)), url('./assets/spacemilkydark-1.png');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-attachment: fixed;
 	color: #f4f2d8;
 	overflow-x: hidden;
+	background-color: #060806;
 }
 
 /* Dark cinematic layer above the static image */
@@ -268,4 +278,148 @@ body::after {
 /* Utility for smooth font-scaling on large headings */
 .hero-heading {
 	font-family: 'Georgia', arial, sans-serif;
+}
+
+/* Make SVG images rendered via <img> appear in the site's gold color */
+.icon-yellow {
+    filter: invert(80%) sepia(69%) saturate(500%) hue-rotate(1deg) brightness(95%) contrast(92%);
+}
+
+/* carousel.css - Optional additional styles */
+
+/* Smooth transitions for carousel items */
+/* carousel.css - Enhanced animations */
+
+/* Smooth transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.duration-200 {
+  transition-duration: 200ms;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+.duration-700 {
+  transition-duration: 700ms;
+}
+
+/* Zoom animation for active slide */
+@keyframes zoomIn {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+.scale-110 {
+  animation: zoomIn 2s ease-out forwards;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Pulse animation for loading */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Spin animation for loader */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Hover effects for buttons */
+.group:hover .group-hover\:scale-110 {
+  transform: scale(1.1);
+}
+
+.group:hover .group-hover\:-translate-x-0\.5 {
+  transform: translateX(-2px);
+}
+
+.group:hover .group-hover\:translate-x-0\.5 {
+  transform: translateX(2px);
+}
+
+/* Smooth shadow transitions */
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.shadow-xl {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* Gradient overlay for better text visibility */
+.bg-gradient-to-t {
+  background-image: linear-gradient(to top, var(--tw-gradient-stops));
+}
+
+.from-black\/30 {
+  --tw-gradient-from: rgb(0 0 0 / 0.3);
+  --tw-gradient-to: rgb(0 0 0 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .rounded-base {
+    border-radius: 0.5rem;
+  }
+  
+  .w-12 {
+    width: 3rem;
+  }
+  
+  .h-12 {
+    height: 3rem;
+  }
+}
+
+/* Custom focus ring for accessibility */
+button:focus-visible {
+  outline: 2px solid #fbbf24;
+  outline-offset: 2px;
+}
+
+button:hover{
+	cursor: pointer;
 }
