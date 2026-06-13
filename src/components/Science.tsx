@@ -29,24 +29,24 @@ const Science: React.FC = () => {
     <section className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         <div>
-          <p className="text-sm text-gray-500 font-medium uppercase">Science</p>
-          <h3 className="hero-heading mt-4 text-4xl md:text-5xl lg:text-6xl font-extrabold text-black leading-tight">
+          <p className="text-sm text-[var(--gold-warm)] font-semibold uppercase tracking-widest">Science</p>
+          <h3 className="hero-heading mt-4 text-4xl md:text-5xl lg:text-6xl font-extrabold text-[var(--gold)] leading-tight">
             Two points of light become one
           </h3>
 
-          <p className="mt-6 text-gray-700 max-w-xl">
+          <p className="mt-6 text-[#d6d2b0] max-w-xl">
             In 1880, physicist John William Strutt discovered a principle that would define the limits of human perception. The Rayleigh Criterion determines the minimum distance at which two objects can be distinguished as separate. Below that threshold, they blur into a single point. Markets operate in that blur. We resolve them.
           </p>
 
           <div className="mt-6 flex items-center gap-4">
-            <button className="px-4 py-2 rounded-full border border-gray-300 text-sm font-medium text-gray-700 bg-white">Discover</button>
-            <button className="text-sm font-medium text-gray-700">Arrow &nbsp; &gt;</button>
+            <button className="px-4 py-2 rounded-full border border-[var(--gold-warm)]/70 text-sm font-medium text-[var(--gold)] bg-[var(--panel)] hover:bg-[var(--panel-strong)] transition-colors">Discover</button>
+            <button className="text-sm font-medium text-[var(--gold)]">Arrow &nbsp; &gt;</button>
           </div>
         </div>
 
         <div className="space-y-6">
           {cards.map((card) => (
-            <article key={card.title} className="border rounded-xl p-6 bg-white">
+            <article key={card.title} className="border border-[var(--gold-warm)]/35 rounded-xl p-6 bg-[var(--panel)] backdrop-blur-sm">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0">
                  <img
@@ -57,8 +57,8 @@ const Science: React.FC = () => {
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-semibold text-black">{card.title}</h4>
-                  <p className="mt-2 text-sm text-gray-600">{card.body}</p>
+                  <h4 className="text-lg font-semibold text-[var(--gold)]">{card.title}</h4>
+                  <p className="mt-2 text-sm text-[#d8d4b6]">{card.body}</p>
                 </div>
               </div>
             </article>

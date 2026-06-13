@@ -31,11 +31,11 @@ const Team: React.FC = () => {
     <section className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
         <div>
-          <p className="text-sm text-gray-500 font-medium">Talent</p>
-          <h2 className="hero-heading mt-4 text-4xl md:text-5xl lg:text-6xl font-extrabold text-black">Join the Team</h2>
+          <p className="text-sm text-[var(--gold-warm)] font-semibold uppercase tracking-widest">Talent</p>
+          <h2 className="hero-heading mt-4 text-4xl md:text-5xl lg:text-6xl font-extrabold text-[var(--gold)]">Join the Team</h2>
         </div>
 
-        <div className="text-gray-700">
+        <div className="text-[#d6d2b0]">
           <p>
             The work demands precision and imagination. We're looking for people who understand that markets are puzzles to be solved, not systems to be exploited.
           </p>
@@ -54,8 +54,8 @@ const Team: React.FC = () => {
   />
 </div>
               <div>
-                <h3 className="text-lg font-bold text-black">{r.title}</h3>
-                <p className="mt-2 text-gray-600 text-sm">{r.body}</p>
+                <h3 className="text-lg font-bold text-[var(--gold)]">{r.title}</h3>
+                <p className="mt-2 text-[#d6d2b0] text-sm">{r.body}</p>
               </div>
             </div>
           </div>
@@ -63,8 +63,8 @@ const Team: React.FC = () => {
       </div>
 
       <div className="mt-8">
-        <button className="px-4 py-2 rounded-full border border-gray-300 text-sm font-medium text-gray-700 bg-white">Explore</button>
-        <span className="ml-4 text-sm font-medium text-gray-700">Arrow &nbsp; &gt;</span>
+        <button className="px-4 py-2 rounded-full border border-[var(--gold-warm)]/70 text-sm font-medium text-[var(--gold)] bg-[var(--panel)] hover:bg-[var(--panel-strong)] transition-colors">Explore</button>
+        <span className="ml-4 text-sm font-medium text-[var(--gold)]">Arrow &nbsp; &gt;</span>
       </div>
     </section>
   )
