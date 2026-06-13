@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import light from '../assets/light.svg'
 
+gsap.registerPlugin(ScrollTrigger)
+
 const Science: React.FC = () => {
-  const [startIndex, setStartIndex] = useState(0)
-  const [isAnimating, setIsAnimating] = useState(false)
-  const [direction, setDirection] = useState<'up' | 'down'>('down')
+  const containerRef = useRef<HTMLElement>(null)
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([])
   
   const cards = [
     {
@@ -39,36 +42,91 @@ const Science: React.FC = () => {
     }
   ]
 
-  const itemsPerPage = 3
-  const maxStartIndex = Math.max(0, cards.length - itemsPerPage)
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Initially hide all cards
+      cardsRef.current.forEach((card) => {
+        if (card) {
+          gsap.set(card, { 
+            autoAlpha: 0,
+            y: 30
+          })
+        }
+      })
 
-  const handleNext = () => {
-    if (isAnimating || startIndex === maxStartIndex) return
-    setIsAnimating(true)
-    setDirection('down')
-    setTimeout(() => {
-      setStartIndex((prev) => Math.min(prev + 1, maxStartIndex))
-      setTimeout(() => setIsAnimating(false), 300)
-    }, 150)
-  }
+      // Create scroll triggers for each card with bidirectional behavior
+      cardsRef.current.forEach((card, index) => {
+        if (!card) return
 
-  const handlePrev = () => {
-    if (isAnimating || startIndex === 0) return
-    setIsAnimating(true)
-    setDirection('up')
-    setTimeout(() => {
-      setStartIndex((prev) => Math.max(prev - 1, 0))
-      setTimeout(() => setIsAnimating(false), 300)
-    }, 150)
-  }
+        // For first card, trigger when section enters
+        if (index === 0) {
+          ScrollTrigger.create({
+            trigger: card,
+            start: 'top bottom-=100',
+            end: 'bottom top+=100',
+            onEnter: () => {
+              gsap.to(card, {
+                autoAlpha: 1,
+                y: 0,
+                duration: 0.6,
+                ease: 'power2.out'
+              })
+            },
+            onLeaveBack: () => {
+              gsap.to(card, {
+                autoAlpha: 0,
+                y: 30,
+                duration: 0.4,
+                ease: 'power2.in'
+              })
+            },
+            toggleActions: 'play none none reverse'
+          })
+        } else {
+          // For subsequent cards, trigger based on previous card
+          const previousCard = cardsRef.current[index - 1]
+          
+          ScrollTrigger.create({
+            trigger: previousCard,
+            start: 'top center+=100',
+            end: 'top center-=50',
+            onEnter: () => {
+              gsap.to(card, {
+                autoAlpha: 1,
+                y: 0,
+                duration: 0.6,
+                ease: 'back.out(0.3)'
+              })
+            },
+            onLeaveBack: () => {
+              gsap.to(card, {
+                autoAlpha: 0,
+                y: 30,
+                duration: 0.4,
+                ease: 'power2.in'
+              })
+            },
+            toggleActions: 'play none none reverse'
+          })
+        }
+      })
 
-  const visibleCards = cards.slice(startIndex, startIndex + itemsPerPage)
+      // Add a master ScrollTrigger to ensure smooth transitions
+      ScrollTrigger.refresh()
+    }, containerRef)
+
+    return () => ctx.revert()
+  }, [])
 
   return (
-    <section id="science" className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+    <section 
+      id="science" 
+      ref={containerRef}
+      className="mt-30 mb-15 max-w-7xl mx-auto px-6 lg:px-8 py-16"
+    >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         {/* Left Column - Static Content */}
-        <div>
+        <div className="lg:sticky lg:top-32">
           <p className="text-sm text-[var(--gold-warm)] font-semibold uppercase tracking-widest">Science</p>
           <h3 className="hero-heading mt-4 text-4xl md:text-5xl lg:text-6xl font-extrabold text-[var(--gold)] leading-tight">
             Two points of light become one
@@ -85,97 +143,34 @@ const Science: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column - Vertical Carousel with Animation */}
-        <div className="relative">
-          <div className="overflow-hidden">
-            <div 
-              className={`space-y-6 transition-all duration-500 ease-in-out ${
-                isAnimating 
-                  ? direction === 'down' 
-                    ? '-translate-y-12 opacity-0' 
-                    : 'translate-y-12 opacity-0'
-                  : 'translate-y-0 opacity-100'
-              }`}
+        {/* Right Column - Stacked Cards */}
+        <div className="space-y-8">
+          {cards.map((card, idx) => (
+            <div
+              key={idx}
+              ref={(el) => { cardsRef.current[idx] = el }}
+              className="border border-[var(--gold-warm)]/35 rounded-xl p-6 bg-[var(--panel)] backdrop-blur-sm hover:border-[var(--gold-warm)]/70 transition-all duration-300 hover:shadow-lg"
+              style={{
+                opacity: 0,
+                visibility: 'hidden'
+              }}
             >
-              {visibleCards.map((card, idx) => (
-                <article 
-                  key={`${startIndex}-${card.title}`} 
-                  className="border border-[var(--gold-warm)]/35 rounded-xl p-6 bg-[var(--panel)] backdrop-blur-sm hover:border-[var(--gold-warm)]/70 transition-all duration-300 hover:shadow-lg"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0">
-                      <img
-                        src={card.icon}
-                        alt={card.title}
-                        className="h-8 w-8 icon-yellow"
-                      />
-                    </div>
-
-                    <div>
-                      <h4 className="text-lg font-semibold text-[var(--gold)]">{card.title}</h4>
-                      <p className="mt-2 text-sm text-[#d8d4b6]">{card.body}</p>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          {/* Navigation Controls */}
-          <div className="flex justify-between items-center mt-6">
-            <div className="flex gap-2">
-              <button
-                onClick={handlePrev}
-                disabled={startIndex === 0 || isAnimating}
-                className={`group p-2 rounded-full border transition-all duration-300 ${
-                  startIndex === 0 || isAnimating
-                    ? 'border-[var(--gold-warm)]/20 text-[var(--gold-warm)]/20 cursor-not-allowed'
-                    : 'border-[var(--gold-warm)]/70 text-[var(--gold)] hover:bg-[var(--panel-strong)] hover:border-[var(--gold-warm)] hover:scale-110 active:scale-95'
-                }`}
-                aria-label="Previous cards"
-              >
-                <svg className="w-5 h-5 transform group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              
-              <button
-                onClick={handleNext}
-                disabled={startIndex === maxStartIndex || isAnimating}
-                className={`group p-2 rounded-full border transition-all duration-300 ${
-                  startIndex === maxStartIndex || isAnimating
-                    ? 'border-[var(--gold-warm)]/20 text-[var(--gold-warm)]/20 cursor-not-allowed'
-                    : 'border-[var(--gold-warm)]/70 text-[var(--gold)] hover:bg-[var(--panel-strong)] hover:border-[var(--gold-warm)] hover:scale-110 active:scale-95'
-                }`}
-                aria-label="Next cards"
-              >
-                <svg className="w-5 h-5 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-
-            {/* Progress Info */}
-            <div className="flex items-center gap-3">
-              <div className="flex gap-1">
-                {Array.from({ length: maxStartIndex + 1 }).map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => !isAnimating && setStartIndex(idx)}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      startIndex === idx
-                        ? 'w-6 bg-[var(--gold)]'
-                        : 'w-1.5 bg-[var(--gold-warm)]/30 hover:bg-[var(--gold-warm)]/60'
-                    }`}
-                    aria-label={`Go to slide set ${idx + 1}`}
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0">
+                  <img
+                    src={card.icon}
+                    alt={card.title}
+                    className="h-8 w-8 icon-yellow"
                   />
-                ))}
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-semibold text-[var(--gold)]">{card.title}</h4>
+                  <p className="mt-2 text-sm text-[#d8d4b6]">{card.body}</p>
+                </div>
               </div>
-              <span className="text-xs text-[var(--gold-warm)]/70 font-mono">
-                {String(startIndex + 1).padStart(2, '0')} / {String(maxStartIndex + 1).padStart(2, '0')}
-              </span>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

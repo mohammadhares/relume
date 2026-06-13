@@ -50,27 +50,7 @@ body::before {
 }
 
 /* Scanline animation layer */
-body::after {
-	content: '';
-	position: fixed;
-	left: 0;
-	right: 0;
-	top: 0;
-	height: 2px;
-	z-index: 1;
-	pointer-events: none;
-	background: linear-gradient(
-		90deg,
-		transparent,
-		rgba(var(--cyan-rgb), 0.12),
-		rgba(var(--gold-rgb), 0.68),
-		rgba(var(--cyan-rgb), 0.12),
-		transparent
-	);
-	box-shadow: 0 0 28px rgba(var(--gold-rgb), 0.36);
-	animation: scan-pulse 8.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-	opacity: 0;
-}
+
 
 #root {
 	position: relative;

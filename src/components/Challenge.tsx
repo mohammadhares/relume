@@ -1,5 +1,4 @@
 import React from 'react'
-import PlaceholderImage from './PlaceholderImage'
 import timer from '../assets/timer.svg'
 import blur_on from '../assets/blur_on.svg'
 import info_i from '../assets/info_i.svg'
@@ -7,11 +6,12 @@ import Carousel from './Carousel'
 
 const Challenge: React.FC = () => {
   return (
-    <section id="challenge" className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+    <section className="mx-auto bg-[#0b0a008f] ">
+      <section id="challenge" className="pt-50 pb-50  max-w-7xl mx-auto px-6 lg:px-8 py-16">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         <div>
-          <p className="text-sm text-[var(--gold-warm)] font-semibold uppercase tracking-widest">Challenge</p>
-          <h2 className="hero-heading mt-4 text-4xl md:text-5xl lg:text-6xl font-extrabold text-[var(--gold)] leading-tight">
+          <p className="text-sm text-(--gold-warm) font-semibold uppercase tracking-widest">Challenge</p>
+          <h2 className="hero-heading mt-4 text-4xl md:text-5xl lg:text-6xl font-extrabold text-(--gold) leading-tight">
             Markets have become a blur of noise
           </h2>
         </div>
@@ -51,19 +51,16 @@ const Challenge: React.FC = () => {
           </ul>
 
           <div className="mt-6 flex items-center gap-4">
-            <button className="px-4 py-2 rounded-full border border-[var(--gold-warm)]/70 text-sm font-medium text-[var(--gold)] bg-[var(--panel)] hover:bg-[var(--panel-strong)] transition-colors">Explore</button>
-            <button className="text-sm font-medium text-[var(--gold)]">Arrow &nbsp; &gt;</button>
+            <button className="px-4 py-2 rounded-full border border-(--gold-warm)/70 text-sm font-medium text-(--gold) bg-(--panel) hover:bg-(--panel-strong) transition-colors">Explore</button>
+            <button className="text-sm font-medium text-(--gold)">Arrow &nbsp; &gt;</button>
           </div>
         </div>
       </div>
 
       <div className="mt-12">
-
-
         <Carousel />
-
-        {/* <PlaceholderImage /> */}
       </div>
+    </section>
     </section>
   )
 }

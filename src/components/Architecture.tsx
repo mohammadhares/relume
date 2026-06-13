@@ -1,9 +1,9 @@
 import React from 'react'
-import PlaceholderImage from './PlaceholderImage'
 
 const Architecture: React.FC = () => {
   return (
-    <section id="architecture" className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+    <section className="mx-auto bg-[#01170678] ">
+    <section id="architecture" className="pt-50 pb-50 max-w-7xl mx-auto px-6 lg:px-8 py-16">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div>
           <p className="text-sm text-[var(--gold-warm)] font-semibold uppercase tracking-widest">Architecture</p>
@@ -36,6 +36,7 @@ const Architecture: React.FC = () => {
           {/* <PlaceholderImage /> */}
         </div>
       </div>
+    </section>
     </section>
   )
 }

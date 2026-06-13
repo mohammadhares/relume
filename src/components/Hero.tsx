@@ -3,7 +3,7 @@ import astronaut from '../assets/astronaut.png'
 
 const Hero: React.FC = () => {
   return (
-    <main id="hero" className="max-w-7xl mx-auto px-6 lg:px-8 py-12 section-anchor">
+    <main id="hero" className="mt-15 mb-15 max-w-7xl mx-auto px-6 lg:px-8 py-19 section-anchor">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <section>
           <h1 className="hero-heading text-[56px] md:text-7xl font-extrabold leading-tight tracking-tight text-[var(--gold)]">
