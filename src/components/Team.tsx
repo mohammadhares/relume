@@ -5,34 +5,35 @@ import system from '../assets/system.svg'
 
 const Team: React.FC = () => {
   const roles = [
-    {
-      icon: search,
-      title: 'Research that moves markets',
-      body: 'Develop quantitative models that reveal patterns in market microstructure and execution dynamics.'
-    },
-    {
-      icon: stra,
-      title: 'Business development and strategy',
-      body: 'Build relationships with institutions that need to see deeper into their own trading operations.'
-    },
-    {
-      icon: system,
-      title: 'Frontend and systems engineering',
-      body: 'Create interfaces that make the invisible visible, turning raw market data into actionable intelligence.'
-    },
-    {
-      icon: search,
-      title: 'Quantitative research that sees beyond consensus',
-      body: 'Build models that isolate the patterns markets hide from ordinary instruments.'
-    }
+   {
+  icon: search,
+  title: 'Quantitative Researcher',
+  body: 'Develop trading models and execution strategies using the AlgoStakes® platform.'
+},
+{
+  icon: stra,
+  title: 'Business Growth & BD Lead',
+  body: 'Drive partnerships, platform adoption, and strategic growth initiatives.'
+},
+{
+  icon: system,
+  title: 'Frontend Engineer',
+  body: 'Build high-performance interfaces that transform complex market data into actionable insights.'
+},
+{
+  icon: search,
+  title: 'Research Engineer',
+  body: 'Bridge quantitative research and production systems to accelerate strategy development.'
+}
   ]
 
   return (
-    <section className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+    <section className='mx-auto bg-[#000000] '>
+      <section id="talent" className="pt-50 max-w-7xl mx-auto px-6 lg:px-8 py-16">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
         <div>
-          <p className="text-sm text-[var(--gold-warm)] font-semibold uppercase tracking-widest">Talent</p>
-          <h2 className="hero-heading mt-4 text-4xl md:text-5xl lg:text-6xl font-extrabold text-[var(--gold)]">Join the Team</h2>
+          <p className="text-sm text-(--gold-warm) font-semibold uppercase tracking-widest">Talent</p>
+          <h2 className="hero-heading mt-4 text-4xl md:text-5xl lg:text-6xl font-extrabold text-(--gold)">Join the Team</h2>
         </div>
 
         <div className="text-[#d6d2b0]">
@@ -42,30 +43,58 @@ const Team: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-10 grid grid-cols-1 md:grid-cols-4 gap-8">
-        {roles.map((r) => (
-          <div key={r.title} className="px-2">
-            <div className="flex items-start gap-4">
-             <div className="flex-shrink-0 mt-1">
-  <img
-    src={r.icon}
-    alt={r.title}
-    className="h-8 w-8"
-  />
-</div>
-              <div>
-                <h3 className="text-lg font-bold text-[var(--gold)]">{r.title}</h3>
-                <p className="mt-2 text-[#d6d2b0] text-sm">{r.body}</p>
-              </div>
-            </div>
-          </div>
-        ))}
+   <div className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+  {roles.map((r) => (
+    <div
+      key={r.title}
+      className="
+        flex flex-col
+        rounded-2xl
+        border border-[var(--gold-warm)]/20
+        bg-[var(--panel)]
+        p-6
+        transition-all duration-300
+        hover:border-[var(--gold)]/50
+        hover:bg-[var(--panel-strong)]
+        hover:-translate-y-1
+      "
+    >
+      <div className="flex items-center justify-center w-14 h-14 rounded-xl border border-[var(--gold-warm)]/20 bg-black/20">
+        <img
+          src={r.icon}
+          alt={r.title}
+          className="h-8 w-8 icon-yellow"
+        />
       </div>
 
-      <div className="mt-8">
-        <button className="px-4 py-2 rounded-full border border-[var(--gold-warm)]/70 text-sm font-medium text-[var(--gold)] bg-[var(--panel)] hover:bg-[var(--panel-strong)] transition-colors">Explore</button>
-        <span className="ml-4 text-sm font-medium text-[var(--gold)]">Arrow &nbsp; &gt;</span>
-      </div>
+      <h3 className="mt-5 text-xl font-bold text-[var(--gold)]">
+        {r.title}
+      </h3>
+
+      <p className="mt-3 text-[#d6d2b0] text-sm leading-relaxed flex-grow">
+        {r.body}
+      </p>
+
+      <button
+        className="
+          mt-6
+          self-start
+          px-4 py-2
+          rounded-full
+          border border-[var(--gold-warm)]/60
+          text-sm
+          font-medium
+          text-[var(--gold)]
+          hover:bg-[var(--panel-strong)]
+          transition-all
+        "
+      >
+        Read More →
+      </button>
+    </div>
+  ))}
+</div>
+    </section>
     </section>
   )
 }

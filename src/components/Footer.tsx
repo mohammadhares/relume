@@ -1,11 +1,16 @@
 import React from 'react'
 import RayleighLogo from '../assets/Rayleighlogo.png'
+import {
+  FaLinkedinIn,
+  FaGithub,
+  FaXTwitter
+} from 'react-icons/fa6'
 
 const Footer: React.FC = () => {
   return (
     <footer className="bg-[var(--ink)] border-t border-[var(--gold-warm)]/35">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr_1fr_1.2fr] gap-10">
           {/* Subscribe / Logo */}
           <div className="col-span-1">
             <div className="flex items-center mb-6">
@@ -18,8 +23,8 @@ const Footer: React.FC = () => {
 
             <p className="text-[#d8d3b2]">Stay informed on market intelligence and research updates.</p>
 
-            <form className="mt-6 flex items-center gap-4 w-full">
-              <input aria-label="Email" type="email" placeholder="Your email" className="flex-1 min-w-0 px-4 py-3 border border-[var(--gold-warm)]/50 rounded-full bg-[var(--panel)] text-[#f6f3da] placeholder:text-[#b9b386] focus:outline-none" />
+          <form className="mt-6 flex items-center gap-3 max-w-md">
+              <input aria-label="Email" type="email" placeholder="Your email" className="px-6 min-w-0 px-4 py-3 border border-[var(--gold-warm)]/50 rounded-full bg-[var(--panel)] text-[#f6f3da] placeholder:text-[#b9b386] focus:outline-none" />
               <button className="px-4 py-2 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-bright)] text-[var(--ink)] text-sm font-semibold whitespace-nowrap transition-colors">Subscribe</button>
             </form>
 
@@ -54,25 +59,38 @@ const Footer: React.FC = () => {
 
           {/* Social / Contact */}
           <div>
-            <h4 className="text-sm font-semibold text-[var(--gold)]">LinkedIn</h4>
-            <div className="mt-4 space-y-3 text-sm text-[#d8d3b2]">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-[var(--gold)] text-[var(--ink)] flex items-center justify-center">f</div>
-                <span>X</span>
-              </div>
+            <h4 className="text-sm font-semibold text-[var(--gold)]">Socials</h4>
+            <div className="mt-4 space-y-4">
+  <a
+    href="#"
+    className="flex items-center gap-3 text-[#d8d3b2] hover:text-[var(--gold)] transition-colors"
+  >
+    <div className="w-9 h-9 rounded-full border border-[var(--gold-warm)]/40 bg-[var(--panel)] flex items-center justify-center">
+      <FaLinkedinIn size={14} />
+    </div>
+    <span>LinkedIn</span>
+  </a>
 
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-[var(--gold)] text-[var(--ink)] flex items-center justify-center">in</div>
-                <span>GitHub</span>
-              </div>
+  <a
+    href="#"
+    className="flex items-center gap-3 text-[#d8d3b2] hover:text-[var(--gold)] transition-colors"
+  >
+    <div className="w-9 h-9 rounded-full border border-[var(--gold-warm)]/40 bg-[var(--panel)] flex items-center justify-center">
+      <FaGithub size={14} />
+    </div>
+    <span>GitHub</span>
+  </a>
 
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-[var(--gold)] text-[var(--ink)] flex items-center justify-center">✉</div>
-                <span>Research</span>
-              </div>
-
-              <div className="mt-4 text-xs text-[#a19b74]">© {new Date().getFullYear()} Rayleigh Research. All rights reserved.</div>
-            </div>
+  <a
+    href="#"
+    className="flex items-center gap-3 text-[#d8d3b2] hover:text-[var(--gold)] transition-colors"
+  >
+    <div className="w-9 h-9 rounded-full border border-[var(--gold-warm)]/40 bg-[var(--panel)] flex items-center justify-center">
+      <FaXTwitter size={14} />
+    </div>
+    <span>X / Twitter</span>
+  </a>
+</div>
           </div>
         </div>
 

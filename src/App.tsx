@@ -29,58 +29,14 @@ const App: React.FC = () => {
 
       <div className="app-shell min-h-screen bg-transparent text-[#f4f2d8]">
       <Nav />
-
       <Hero />
-
-      {/* Divider between hero and challenge */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <hr className="border-t border-[var(--gold-warm)]/30 my-12" />
-      </div>
-
       <Challenge />
-
-      {/* Divider between challenge and science */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <hr className="border-t border-[var(--gold-warm)]/30 my-12" />
-      </div>
-
       <Science />
-
-      {/* Divider between science and services */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <hr className="border-t border-[var(--gold-warm)]/30 my-12" />
-      </div>
-
       <Architecture />
-
-
-
-      {/* Divider between services and architecture */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <hr className="border-t border-[var(--gold-warm)]/30 my-12" />
-      </div>
-
       <Services />
-
-
-      {/* Divider between architecture and team */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <hr className="border-t border-[var(--gold-warm)]/30 my-12" />
-      </div>
-
       <Team />
-
-      {/* Divider before CTA */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <hr className="border-t border-[var(--gold-warm)]/30 my-12" />
-      </div>
-
       <Cta />
-
-      {/* Footer */}
       <Footer />
-
-
     </div>
     </>
   )
